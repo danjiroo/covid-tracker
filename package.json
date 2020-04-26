@@ -1,7 +1,7 @@
 {
-  "name": "covid-tracker",
+  "name": "covid-tracker-hooks",
   "version": "1.0.0",
-  "description": "Coronavirus Tracker PH",
+  "description": "Coronavirus Tracker - converted with react hooks",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --port 3000 --open --hot",
@@ -17,6 +17,7 @@
     "jquery": "^3.4.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-google-charts": "^3.0.15",
     "react-load-image": "^0.1.7",
     "react-router-dom": "^5.1.2"
   },

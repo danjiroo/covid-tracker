@@ -8,12 +8,20 @@
 @keyframes App-logo-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: no-preference) { .App-logo { animation: App-logo-spin infinite 20s linear; } }
 .wrapper { width: 800px; max-width: 100%; position: relative; margin: 0 auto; }
-/* my css */
+
 body { -webkit-transition: all .3s linear; transition: all .3s linear; background: #282c34; overflow-x: hidden; margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; }
-h2 { margin: 15px 0 0; -webkit-transition: all .3s linear; transition: all .3s linear; }
+h2 { color: #fff; margin: 15px 0 0; -webkit-transition: all .3s linear; transition: all .3s linear; }
 img { width: 20vh; }
 mark { background: transparent; color: #fff; }
-main { color: white; }
+
+header #button { position: absolute; right: 15px; top: 15px; padding: 10px 15px; border: 0; text-transform: uppercase; color: #fff; background: tomato; cursor: pointer; z-index: 2; -webkit-transition: all .3s linear; transition: all .3s linear;  }
+header #button:hover { background: #777 }
+
+main { color: white; display: flex; justify-content: center; }
+main.active .covid_div { width: 100%; }
+main.active .covid_div ul li { padding: 15px 0; font-size: 18px; }
+main.active .covid_div ul li span { font-size: 14px; }
+
 .form_div form { display: flex; justify-content: center; align-items: center; padding: 0 5px; }
 .form_div form .searchbar { width: 75%; position: relative; }
 .form_div form .searchbar .searchspan { opacity: 0; position: absolute; left: 0; right: 0; bottom: -40px; width: 100%; background: tomato; height: 40px; display: flex; justify-content: center; align-items: center; z-index: 1;  }
@@ -25,30 +33,40 @@ main { color: white; }
 .form_div form input[type="submit"] { width: 25%; background: #777; color: #fff; text-transform: uppercase; }
 .form_div form input[type="submit"]:hover { background: tomato;cursor: pointer; }
 
-.covid_div { margin: 0 auto; display: flex; align-items: center; justify-content: center; width: 800px; max-width: 100%; padding-bottom: 10px }
+.covid_div { margin: 0 auto; display: flex; align-items: center; justify-content: center; max-width: 100%; padding-bottom: 10px }
 .covid_div:hover li { opacity: 0.7; }
 .covid_div ul { list-style: none; padding: 0; font-size: 22px; width: 100%; margin: 5px;  }
 .covid_div ul li { width: 100%; padding: 50px 0; border: 1px solid transparent; color: #fff; font-weight: bold; }
 .covid_div ul li:first-child { margin-bottom: 10px; }
 .covid_div ul li:hover { opacity: 1; border: 1px solid #fff; }
 .covid_div ul li span { display: block; font-weight: normal; font-size: 18px; text-transform: uppercase; }
+.covid_div ul li small { display: block; font-weight: normal; opacity: 0.6; font-size: 16px; }
 .covid_div ul:nth-child(1) li { background: #3399FF; }
 .covid_div ul:nth-child(2) li { background: #07AF07; }
 .covid_div ul:nth-child(3) li { background: #CC3333; }
+
+.total_cases { font-size: 20px; letter-spacing: 1px; padding: 0 10px }
+.total_cases span { display: block; font-size: 14px; font-style: italic; color: #888 }
 
 .countryClass { text-transform: uppercase; font-weight: bold; display: block; font-size: 5vh; opacity: 0.5; margin-bottom: 10px }
 .showerror { border: 2px solid tomato !important; }
 .successBorder { border: 2px solid #fff !important; }
 
-.copyright { font-size: 17px; color: #ccc; padding: 10px; border-top: 1px dotted #ccc; }
+.copyright { font-size: 17px; color: #ccc; padding: 10px 10px 30px; border-top: 1px dotted #ccc; }
 .copyright p { margin: 0; padding: 8px; }
 .copyright p span { display: block; font-size: 14px; font-style: italic; color: #888 }
-.copyright a { color: cyan; }
+.copyright a { color: cyan; display: block; }
 .copyright a:hover, .copyright a:active { color: teal; }
 
 /* .map_con { position: relative; min-height: 300px; width: 99%; margin: 0 auto 10px; } */
 .map_con { padding: 0 5px; margin: 0 auto; }
 .map_con iframe { min-height: 350px; border:0; width: 100%; }
+
+.chart_div { padding: 0 5px 20px; width: 500px; max-width: 100%; margin: 0 auto; }
+.chart_div div { margin: 0 auto; }
+.chart_div text { word-break: break-all; word-wrap: break-word;}
+.chart_div svg > g:last-child { pointer-events: none }
+p.chart_note { padding: 0 10px }
   
 .global { margin-left: -400px; opacity: 0; position: fixed; top: 0; left: 0; text-align: left; padding: 0; width: 400px; max-width: 100%; overflow-y: scroll; /* scrollbar-color: #282C34 #19dcbc; */ border-right: 1px dotted #ccc; background: #282C34; z-index: 10; -webkit-transition: all .3s linear; transition: all .3s linear; }
 .global::before { content: ''; position: fixed; bottom: 0; left: 0; right: 0; background: linear-gradient(to bottom, transparent, #1f1f1f); width: 400px; height: 35px; }
@@ -78,6 +96,7 @@ main { color: white; }
 .global.active { width: 360px; }
 #appid.active { margin-left: 360px; }
 .sidediv button.active { left: 310px }
+main.active .chart_div { width: 400px }
 }
 
 @media only screen and (max-width: 850px) {
@@ -98,6 +117,8 @@ main { color: white; }
 .sidediv button.active { left: 140px; }
 .global ul { padding: 30px 10px; }
 .global ul small { flex-direction: column; }
+main.active .chart_div { width: 300px }
+main.active .form_div { width: 85%; }
 }
 @media only screen and (max-width: 700px) {
 .form_div form input[type="submit"] { width: 40%; }
@@ -111,8 +132,13 @@ main { color: white; }
 .countryClass { font-size: 30px; word-wrap: break-word; padding: 0 10px; }
 .map_con { width: 96%; }
 #covid_id.active { padding: 0 3px 10px; }
+main.active .chart_div { width: 250px }
+main.active .form_div { width: 99%; }
 }
 @media only screen and (max-width: 500px) {
+header #button { right: 15px; padding: 8px 12px; font-size: 11px }
+main { flex-wrap: wrap; padding-bottom: 30px; }
+main .wrapper:nth-child(2) { padding-top: 30px }
 .covid_div { padding: 0 3px 10px; }
 #appid.active img { width: 15vh }
 #covid_id.active { padding: 0 5px 10px; }
@@ -121,6 +147,9 @@ main { color: white; }
 #covid_id.active ul li:first-child { margin-bottom: 4px; }
 #form_id.active, #map_id.active { width: auto; }
 #form_id.active form .searchbar .searchspan, #form_id form .searchbar .searchspan { font-size: 11px; }
+.chart_div { height: 280px; width: 400px }
+main.active .chart_div { height: 280px; width: 400px }
+main.active .form_div { width: 95.5%; }
 }
 @media only screen and (max-width: 400px) {
 .covid_div ul li span { font-size: 14px; }

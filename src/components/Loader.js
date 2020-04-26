@@ -2,7 +2,6 @@ import React from 'react';
 
 const Loader = () => {
 
-
     setTimeout(() => {
         var loader = document.getElementById('loader_id');
 		loader.style.opacity = '0';

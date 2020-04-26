@@ -3,7 +3,7 @@ import axios from 'axios';
 import Search from './Search';
 import ChartComp from './ChartComp';
 
-const Tracker = () => {
+const Compare = () => {
     const [country, setCountry] = useState({
         active: '...',
         cases: '...',
@@ -40,7 +40,7 @@ const Tracker = () => {
     return (
         <div className="wrapper">
             <span className="countryClass">{country.country}</span>
-            <Search searchCountry={searchCountry} />
+            <Search compareCountry={true} searchCountry={searchCountry} />
             <div style={{padding: '10px 0', position: 'relative'}} >
                 <div className="covid_div" id="covid_id">
                     <ul>
@@ -68,4 +68,4 @@ const Tracker = () => {
     
 }
     
-export default Tracker;
+export default Compare;

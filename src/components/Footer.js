@@ -6,14 +6,14 @@ const Footer = () => {
             <div className="wrapper">
                 <div className="copyright">
                     <p>
-                        <span>No copyright intended for the logo.</span>
-                        <span>Note: Data are updated automatically!</span>
-                        <span>Input: "World" to search the total cases globally.</span>
-                        <span>You can also input continents such as: Asia, Europe, etc.</span>
-                        <span>My Google Map API has expired, reverting back to manual Google maps via iframe.</span>
+                        <span>No copyright infringement intended for the logo.</span>
                     </p>
                     <p>Developer: Dan Quesada III</p>
-                    <p>Source: <a href="https://coronavirus-19-api.herokuapp.com" target="_blank" rel="noopener noreferrer">https://coronavirus-19-api.herokuapp.com</a></p>
+                    <p>Sources:</p>
+                    <a href="https://www.worldometers.info/coronavirus" target="_blank" rel="noopener noreferrer">https://www.worldometers.info/coronavirus</a>
+                    <a href="https://www.doh.gov.ph/covid-19/case-tracker" target="_blank" rel="noopener noreferrer">https://www.doh.gov.ph/covid-19/case-tracker</a>
+                    <a href="http://www.covid19.gov.ph/" target="_blank" rel="noopener noreferrer">http://www.covid19.gov.ph/</a>
+                    <a href="https://coronavirus-19-api.herokuapp.com" target="_blank" rel="noopener noreferrer">https://coronavirus-19-api.herokuapp.com</a>
                 </div>
             </div>
         </footer>

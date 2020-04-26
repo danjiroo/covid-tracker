@@ -4,6 +4,4 @@
 
 > Coronavirus Tracker
 
-> With search functionality
-
-> Added Google Maps API (However, I deactivated the API key cause of pricing concerns)
+> Converted with React Hooks
